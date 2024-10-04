@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .colorbox{
+            width: 90%;
+            height: 300px;
+            background: black;
+            margin-top: 30px;
+            margin-left: 60px;
+            margin-bottom: 60px;
+        }
+        .colorinput{
+            width: 22%;
+            height: 50px;
+            margin-left: 10px;
+        }
+        .inputbox {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px;
+        }
+        .color-input-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .inputbox :first-child{
+            margin-left: 60px;
+        }
+        .button button{
+            padding: 10px 30px;
+            background-color: cadetblue;
+            border-radius: 15px;
+            margin-top: 40px;
+            cursor: pointer;
+        }
+        .radial-btn{
+            margin-left: 40px;
+        }
+        .radial-btn:hover{
+            background-color: purple;
+            color: wheat;
+        }
+        .linear-btn{
+            margin-left: 600px;
+        }
+        .linear-btn:hover{
+            background-color: purple;
+            color: wheat;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="colorbox" id="color-box"></div>
+
+    <div class="inputbox">
+        <input class="colorinput" id="input1color" type="color">           
+        <p id="text1"></p>
+        <br>
+        <input class="colorinput" id="input2color" type="color">
+        <p id="text2"></p>
+        <br>
+        <input class="colorinput" id="input3color" type="color">
+        <p id="text3"></p>
+        <br>
+        <input class="colorinput" id="input4color" type="color">
+        <p id="text4"></p>
+    </div>
+
+    <div class="button">
+        <button class="linear-btn" id="linear">LINEAR</button>
+        <button class="radial-btn" id="radial">RADIAL</button>
+    </div>
+
+    <script>
+        document.getElementById('linear').addEventListener('click', function(){
+            let input1color = document.getElementById('input1color').value;
+            let input2color = document.getElementById('input2color').value;
+            let input3color = document.getElementById('input3color').value;
+            let input4color = document.getElementById('input4color').value;
+
+            document.getElementById('text1').innerHTML = input1color;
+            document.getElementById('text2').innerHTML = input2color;
+            document.getElementById('text3').innerHTML = input3color;
+            document.getElementById('text4').innerHTML = input4color;
+
+            let color_box = document.getElementById('color-box');
+            color_box.style.background = `linear-gradient(to right, ${input1color}, ${input2color}, ${input3color}, ${input4color})`;
+        });
+
+        document.getElementById('radial').addEventListener('click', function(){
+            let input1color = document.getElementById('input1color').value;
+            let input2color = document.getElementById('input2color').value;
+            let input3color = document.getElementById('input3color').value;
+            let input4color = document.getElementById('input4color').value;
+
+            document.getElementById('text1').innerHTML = input1color;
+            document.getElementById('text2').innerHTML = input2color;
+            document.getElementById('text3').innerHTML = input3color;
+            document.getElementById('text4').innerHTML = input4color;
+
+            let color_box = document.getElementById('color-box');
+            color_box.style.background = `radial-gradient(circle, ${input1color}, ${input2color}, ${input3color}, ${input4color})`;
+        });
+    </script>
+</body>
+</html>
